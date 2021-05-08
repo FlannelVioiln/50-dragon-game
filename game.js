@@ -1,12 +1,12 @@
 function update() 
 {
     
-    updateDragons(hornContext,0,0,0,0,0,0)
+    updateDragons(gContext,0,0,0,0,0,0)
 }
 
 function updateDragons(context,redMax,redMin,greenMax,greenMin,blueMax,blueMin)
 {
-    var pixels = context.getImageData(0, 0, spriteWidth, spriteHeight);
+    var pixels = context.getImageData(0, 0, spriteWidth*scale, spriteHeight*scale);
 
     for (i = 0; i < pixels.data.length / 4; i++)
     {
@@ -28,6 +28,3 @@ function changePixelColor(data,index,colorToChange,red,blue,green){
     }
 }
 
-function randomInt(max,min){
-    return Math.random()*(max-min)+min;
-}

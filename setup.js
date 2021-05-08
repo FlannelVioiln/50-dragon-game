@@ -11,37 +11,30 @@ function preload()
 }
 function create() 
 {
-	var baseTexture;
 	var newTexture;
 	//var context;
-   
-
+    
+	let gameTextures = [];
 	var westernPlatesBase;
 	var westernPlatesBase2;
-    textures.add( this.textures.get('western-koi-base').getSourceImage());
-    tailSpikeTexture = this.textures.get('western-spike-tail').getSourceImage();
-    tailFrondTexture = this.textures.get('western-frond-tail').getSourceImage();
-    tailTexture = this.textures.get('western-tail-base').getSourceImage();
-    hornTexture = this.textures.get('western-horn1').getSourceImage();
-    horn1Texture = this.textures.get('western-horn2').getSourceImage();
-    horn2Texture = this.textures.get('western-horn3').getSourceImage();
+    gameTextures.push( this.textures.get('western-koi-base').getSourceImage());
+    gameTextures.push( this.textures.get('western-spike-tail').getSourceImage());
+    gameTextures.push( this.textures.get('western-frond-tail').getSourceImage());
+    gameTextures.push( this.textures.get('western-tail-base').getSourceImage());
+    gameTextures.push( this.textures.get('western-horn1').getSourceImage());
+    gameTextures.push( this.textures.get('western-horn2').getSourceImage());
+    gameTextures.push( this.textures.get('western-horn3').getSourceImage());
 
-    var newTexture = this.textures.createCanvas('full_dragon', baseTexture.width, baseTexture.height);
-    var newHornTexture = this.textures.createCanvas('horns', baseTexture.width, baseTexture.height);
-    context = newTexture.getSourceImage().getContext('2d');
-    hornContext = newHornTexture.getSourceImage().getContext('2d');
-    hornContext.drawImage(horn1Texture, 0, 0,spriteWidth*scale,spriteHeight*scale);  
+    var newTexture = this.textures.createCanvas('full_dragon', spriteWidth*scale, spriteHeight*scale);
 
-    hornContext.drawImage(baseTexture, 0, 0,spriteWidth*scale,spriteHeight*scale);
-    hornContext.drawImage(tailTexture, 0, 0,spriteWidth*scale,spriteHeight*scale);
+   
+    gContext = newTexture.getSourceImage().getContext('2d');
 
-     
-    hornContext.drawImage(hornTexture, 0, 0,spriteWidth*scale,spriteHeight*scale);
-    hornContext.drawImage(horn2Texture, 0, 0,spriteWidth*scale,spriteHeight*scale); 
+    gameTextures.forEach(loopDraw);
 
-    hornContext.drawImage(tailSpikeTexture, 0, 0,spriteWidth*scale,spriteHeight*scale);
-    hornContext.drawImage(tailFrondTexture, 0, 0,spriteWidth*scale,spriteHeight*scale);
     var westernPlatesBase2 = this.add.image(256, 256, 'full_dragon');
-    var westernPlatesBase2 = this.add.image(256, 256, 'horns');
 
+}
+function loopDraw(item,index){
+	gContext.drawImage(item,0,0,spriteWidth*scale,spriteHeight*scale);
 }
