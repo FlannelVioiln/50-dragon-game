@@ -10,9 +10,9 @@ function updateDragons(context,redMax,redMin,greenMax,greenMin,blueMax,blueMin)
 
     for (i = 0; i < pixels.data.length / 4; i++)
     {
-        changePixelColor(pixels.data, i * 4, 115,76,0,0);
-        changePixelColor(pixels.data, i * 4, 181,153,21,21);
-        changePixelColor(pixels.data, i * 4, 64,163,163,36);
+        changePixelColor(pixels.data, i * 4, gray1,76,0,0);
+        changePixelColor(pixels.data, i * 4, gray2,153,21,21);
+        changePixelColor(pixels.data, i * 4, gray3,163,163,36);
         changePixelColor(pixels.data, i * 4, 0,50,50,50);
     }
 
